@@ -1,0 +1,24 @@
+version: 0.2
+
+env:
+    variables:
+        CACHE_CONTROL: "86400"
+        BUILD_FOLDER: "dist"
+        BUILD_ENV: "development"
+phases:
+  install:
+    runtime-versions:
+        nodejs: 10
+    commands:
+        - echo Installing source NPM dependencies...
+        - npm install
+  build:
+    commands:
+        - echo Build started
+        - gulp
+        
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'dist'
+    discard-paths: no
